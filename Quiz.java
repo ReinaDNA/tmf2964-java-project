@@ -7,19 +7,25 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Quiz {
-    ArrayList<InterfaceQuestion> questionBank;
+    ArrayList<InterfaceQuestion> questionBank = new ArrayList<>();
+    int index = 1;
+
     public void loadQuestionFromFile(){
         try(Scanner qLoader = new Scanner(new File("test.txt"));){
-            int index = 1;
             // Loops through the question bank
-            while(qLoader.hasNextLine()){
+            do{
+                index = 1; // Resets the index just in case 
                 // Fetches the next question
                 String data = qLoader.nextLine();
+                if(data.trim().isEmpty()){
+                    continue;
+                }
+
                 // Parsing the data and stores it using a String array
                 String[] parts = data.split("::");
                 String questionType = parts[0];
                 // If data is invalid, skips to the next line
-                if(questionType == null || questionType.trim().isEmpty()){
+                if(questionType.isEmpty()){
                     System.err.println("No data received, proceeding with the next line.");
                     continue;
                 }else{
@@ -28,7 +34,7 @@ public class Quiz {
                     questionBank.add(createQuestions(questionType, parts, index));
                     index++;
                 }
-            }
+            }while(qLoader.hasNextLine());
         }catch(FileNotFoundException e){
             System.out.println("An error has occured.");
             e.printStackTrace();
@@ -37,8 +43,8 @@ public class Quiz {
 
     public InterfaceQuestion createQuestions(String questionType, String[] questionParts, int index){
         // Checking if there is anything in the questionType variable
-        
-            if(questionType.equalsIgnoreCase("MCQ") && questionParts.length == 7){
+
+            if(questionType.equalsIgnoreCase("MCQ") && questionParts.length == 8){
                 // If it is MCQ type question
                 // Parse out the required data
                 String question = questionParts[1];
@@ -58,4 +64,17 @@ public class Quiz {
                 return null;
             }
         }
+
+        public ArrayList<InterfaceQuestion> getQuestionBank(){
+            return this.questionBank;
+        }
+
+        public int getIndex(){
+            return this.index;
+        }
+
+        public InterfaceQuestion getQuestion(int index){
+            return questionBank.get(index);
+        }
+        
 }

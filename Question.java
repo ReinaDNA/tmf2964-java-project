@@ -42,7 +42,17 @@ public class Question implements InterfaceQuestion {
         return false;
     }
   
-   
+   public int getIndex(){
+        return this.index;
+   }
+
+   public int getPointValue(){
+    return this.pointValue;
+   }
+
+   public String getQuestion(){
+        return this.question;
+   }
 }
 
 // Further extend this class to implement different question types

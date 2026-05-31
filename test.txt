@@ -1,1 +1,3 @@
 MCQ::What does SDG 12 focus on?::Clean Energy::Responsible Consumption::Zero Hunger::Quality Education::B::1
+MCQ::Six seven?::Six seven::Six seven::Six seven::Six seven::C::2
+

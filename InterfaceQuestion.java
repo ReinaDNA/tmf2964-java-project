@@ -8,4 +8,7 @@ public interface InterfaceQuestion {
     public void setAnswer();
     public void validateResponse();
     public boolean checkAnswer(String choice);
+    public int getIndex();
+    public int getPointValue();
+    public String getQuestion();
 }
