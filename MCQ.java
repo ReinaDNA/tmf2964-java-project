@@ -2,21 +2,21 @@
 // Inherits from Question to make different types of questions
 
 public class MCQ extends Question {
-    String[] options = {"A) ", "B) ", "C) ", "D) "};
+    String[] optionsDesc = {"A) ", "B) ", "C) ", "D) "};
+    char[] options = {'a', 'b', 'c', 'd'};
+    char correctAnswer;
     
-    public MCQ(int index, String question, char correctAnswer, String[] options){
-        super(index, question, correctAnswer);
-        for(int i=0; i<options.length; i++){
-            this.options[i] += options;
+
+    public MCQ(int index, String question, int pointValue, String[] optionsDesc, char correctAnswer){
+        super(index, question, pointValue);
+        this.correctAnswer = correctAnswer; 
+        for(int i=0; i< optionsDesc.length; i++){
+            this.optionsDesc[i] += optionsDesc[i];
         }
     }
 
     @Override
-    public boolean validateResponse(char choice){
-        if(choice == correctAnswer){
-            return true;
-        }else{
-            return false;
-        }
+    public void validateResponse(){
+        // Check if user is inputting correctly or no
     }
 }

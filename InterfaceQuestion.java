@@ -3,9 +3,9 @@
 
 public interface InterfaceQuestion {
     // Base requirements for a single question.
-    public void loadQuestionFromFile();
     public void askQuestion();
     public void setQuestion(String input);
-    public void setAnswer(char choice);
-    public boolean validateResponse(char choice);
+    public void setAnswer();
+    public void validateResponse();
+    public boolean checkAnswer(String choice);
 }
