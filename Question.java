@@ -2,8 +2,9 @@
 // Created by:
 
 import java.util.Scanner;
+import javax.swing.JComponent;
 
-public class Question implements InterfaceQuestion {
+public abstract class Question implements InterfaceQuestion {
     String question;
     char response;
     int index;
@@ -26,6 +27,22 @@ public class Question implements InterfaceQuestion {
        
     }
 
+    // Abstract functions
+    // Must be overriden by child classes
+    
+    public abstract JComponent[] createAnswerComponents();
+    // Abstract method to create GUI components for the question
+        
+
+    public void validateResponse(){
+        // Validate response is to check if the user is input correctly or no
+    }
+     
+    public boolean checkAnswer(String choice){
+        return false;
+    }
+
+    // Setters
     public void setAnswer(){
 
     }
@@ -34,25 +51,18 @@ public class Question implements InterfaceQuestion {
         question = input;
     }
 
-    public void validateResponse(){
-        // Validate response is to check if the user is input correctly or no
-    }
-
-    public boolean checkAnswer(String choice){
-        return false;
-    }
-  
-   public int getIndex(){
+    // Getters
+    public int getIndex(){
         return this.index;
-   }
+    }
 
-   public int getPointValue(){
-    return this.pointValue;
-   }
+    public int getPointValue(){
+        return this.pointValue;
+    }
 
-   public String getQuestion(){
+    public String getQuestion(){
         return this.question;
-   }
+    }
 }
 
 // Further extend this class to implement different question types
