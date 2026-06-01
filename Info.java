@@ -1,5 +1,5 @@
 // Class to display info to the user
-// Created by:
+// Created by:Thiveya
 
 public class Info implements InterfaceInfo{
     public Info(){
