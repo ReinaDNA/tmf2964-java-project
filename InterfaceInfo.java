@@ -2,5 +2,7 @@
 
 public interface InterfaceInfo {
     
-    public void displayInfo();
+    void displayInfo();
+    void displayInfo(int page);
+    void displayInfo(double score);
 }
