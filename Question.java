@@ -1,23 +1,47 @@
 // Main class that implements question
-// Created by:
+// Created by: Ma
 
-public class Question implements InterfaceQuestion {
-    public Question(){
-        // Some code inside the constructor
+public abstract class Question implements InterfaceQuestion {
+    String question, answer;
+    int answerPoint, questionIndex; 
+
+    public Question(
+        int questionIndex, int answerPoint, 
+        String answer, String question){
+            
+        this.questionIndex = questionIndex;
+        this.answerPoint = answerPoint;
+        this.answer = answer;
+        this.question = question;
     }
 
-    public void setQuestion(){
-
+    // Setters
+    public void setQuestion(String question){
+        this.question = question;
     }
 
-    public void setAnswer(){
-
+    public void setAnswer(String answer){
+        this.answer = answer;
     }
 
-    public boolean checkAnswer(){
-        return false;
+    // Getters
+    public String getQuestion(){
+        return question;
+    }
+
+    public String getAnswer(){
+        return answer;
+    }
+
+    public int getIndex(){
+        return questionIndex;
+    }
+
+    public int getPoint(){
+        return answerPoint;
+    }
+
+    public boolean checkAnswer(String answer){
+        return this.answer.equalsIgnoreCase(answer);
     }
 }
-
-// Further extend this class to implement different question types
-// Example, MCQ, fill in the blanks, radiobox, etc.
