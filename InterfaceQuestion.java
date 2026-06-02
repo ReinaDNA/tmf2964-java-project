@@ -10,7 +10,8 @@ public interface InterfaceQuestion {
     public JComponent[] createAnswerComponents();
     public void setAnswer();
     public void validateResponse();
-    public boolean checkAnswer(String choice);
+    public String getUserResponse();
+    public boolean checkAnswer();
     public int getIndex();
     public int getPointValue();
     public String getQuestion();

@@ -30,17 +30,17 @@ public abstract class Question implements InterfaceQuestion {
     // Abstract functions
     // Must be overriden by child classes
     
-    public abstract JComponent[] createAnswerComponents();
     // Abstract method to create GUI components for the question
-        
-
-    public void validateResponse(){
-        // Validate response is to check if the user is input correctly or no
-    }
-     
-    public boolean checkAnswer(String choice){
-        return false;
-    }
+    public abstract JComponent[] createAnswerComponents();
+    
+    // Abstract method to verify if the user's response is within expected range
+    // (Used for Fill in the blanks only)
+    public abstract void validateResponse();
+    
+    // Abstract method to check user's answer is correct or not
+    public abstract boolean checkAnswer();
+    
+    public abstract String getUserResponse();
 
     // Setters
     public void setAnswer(){

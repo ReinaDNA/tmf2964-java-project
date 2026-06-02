@@ -52,7 +52,7 @@ public class Quiz {
                 for(int i=0; i<options.length; i++){
                     options[i] += questionParts[i+2];
                 }
-                char correctAnswer = questionParts[6].charAt(0);
+                String correctAnswer = questionParts[6];
                 int pointValue = Integer.parseInt(questionParts[7]);
                 InterfaceQuestion newQuestion = new MCQ(index, question, pointValue, options, correctAnswer);
                 return newQuestion;
@@ -73,8 +73,13 @@ public class Quiz {
             return this.index;
         }
 
+        public int getLastIndex(){
+            return this.questionBank.size() - 1;
+        }
+
         public InterfaceQuestion getQuestion(int index){
             return questionBank.get(index);
         }
+
         
 }
