@@ -1,18 +1,29 @@
 // Created by: Ma
 
-public class MultipleChoiceQuestion extends Question{
-    String[] questionOption;
+public class MatchingQuestion extends Question{
+    private String[] leftHandSide;
+    private String[] rightHandSide;
 
-    public MultipleChoiceQuestion(
+    public MatchingQuestion(
         int questionIndex, int answerPoint, 
-        String answer, String question, String[] questionOption) {
+        String answer, String question, 
+        String[] leftHandSide, String[] rightHandSide){
             
         super(questionIndex, answerPoint, answer, question);
-        this.questionOption = questionOption; // We are storing the array into this field
+        this.leftHandSide = leftHandSide;
+        this.rightHandSide = rightHandSide;
+    }
+
+    public String[] getLeftHandSide(){
+        return leftHandSide;
+    }
+
+    public String[] getRightHandSide(){
+        return rightHandSide;
     }
 
     @Override
-    public boolean checkAnswer(String answer) {
-        return super.checkAnswer(answer);
+    public boolean checkAnswer(String answer){
+        return super.checkAnswer(answer);    
     }
 }
