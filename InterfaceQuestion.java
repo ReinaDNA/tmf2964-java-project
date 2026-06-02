@@ -3,7 +3,15 @@
 
 public interface InterfaceQuestion {
     // Base requirements for a single question.
-    public void setQuestion();
-    public void setAnswer();
-    public boolean checkAnswer();
+
+    // Setters
+    public void setQuestion(String question);
+    public void setAnswer(String answer);
+    // Getters
+    public String getQuestion();
+    public String getAnswer();
+    public int getIndex();
+    public int getPoint();
+
+    public boolean checkAnswer(String answer);
 }
