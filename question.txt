@@ -1,5 +1,20 @@
-MCQ|1|5|B|What is the order of the differential equation y'' + y = 0?|1st Order,2nd Order,3rd Order,4th Order
-TF|2|5|TRUE|The equation y' + y = 0 is a first-order differential equation.
-FILL|3|5|2|The order of y'' + 3y' + y = 0 is ____.
-SHORT|4|10|e^(2x)+C|Solve dy/dx = 2y.
-MATCH|5|10|1-A,2-B,3-C|Match the pairs|A~B~C|1~2~3
+MCQ|1|5|B|How many subsets does a set with 3 elements have?|4~8~6~9
+MCQ|2|5|A|What is the value of 5!?|120~60~24~720
+MCQ|3|5|C|Which symbol represents logical conjunction?|∨~→~∧~↔
+MCQ|4|5|D|What is the binary representation of decimal 10?|1001~1110~1100~1010
+MCQ|5|5|B|A graph with no cycles is called a?|Complete Graph~Tree~Bipartite Graph~Directed Graph
+MCQ|6|5|A|How many edges does a complete graph K4 have?|6~4~8~12
+MCQ|7|5|C|Which of the following is a tautology?|P ∧ ¬P~P → Q~P ∨ ¬P~P ↔ Q
+MCQ|8|5|B|What is the decimal value of binary 1011?|10~11~12~13
+MCQ|9|5|D|The degree of a vertex is the number of?|Vertices~Graphs~Paths~Edges connected to it
+MCQ|10|5|A|How many permutations of 3 objects exist?|6~3~9~12
+TF|11|5|TRUE|Every tree is a connected graph.
+TF|12|5|FALSE|A simple graph may contain self-loops.
+TF|13|5|TRUE|The empty set is a subset of every set.
+TF|14|5|FALSE|Binary number 1000 equals decimal 10.
+TF|15|5|TRUE|A complete graph has an edge between every pair of distinct vertices.
+FILL|16|5|16|How many subsets are in a set containing 4 elements?
+FILL|17|5|24|The value of 4! is ____.
+SHORT|18|10|8|How many subsets does a set with 3 elements contain?
+SHORT|19|10|15|How many edges are in a complete graph K6?
+MATCH|20|15|1-C,2-D,3-A,4-B|Match the term with its description.|Tree~Factorial~Subset~Binary Number|A Selection of elements from a set~A Base-2 representation~A Connected acyclic graph~Product of positive integers
