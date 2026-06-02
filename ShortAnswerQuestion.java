@@ -9,7 +9,10 @@ public class ShortAnswerQuestion extends Question{
     }
 
     @Override
-    public boolean checkAnswer(String answer) {
-        return this.answer.contains(answer);
+    public boolean checkAnswer(String answer){
+        String correct = getAnswer().replaceAll("\\s+", ""); // White space
+        String user = answer.replaceAll("\\s+", ""); // Get rid of the white space
+
+        return correct.equalsIgnoreCase(user);
     }
 }
