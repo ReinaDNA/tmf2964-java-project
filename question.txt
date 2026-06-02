@@ -1,0 +1,5 @@
+MCQ|1|5|B|What is the order of the differential equation y'' + y = 0?|1st Order,2nd Order,3rd Order,4th Order
+TF|2|5|TRUE|The equation y' + y = 0 is a first-order differential equation.
+FILL|3|5|2|The order of y'' + 3y' + y = 0 is ____.
+SHORT|4|10|e^(2x)+C|Solve dy/dx = 2y.
+MATCH|5|10|1-A,2-B,3-C|Match the pairs|A~B~C|1~2~3
