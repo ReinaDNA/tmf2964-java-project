@@ -2,8 +2,8 @@
 // Created by: Ma
 
 public abstract class Question implements InterfaceQuestion {
-    String question, answer;
-    int answerPoint, questionIndex; 
+    private String question, answer;
+    private int answerPoint, questionIndex; 
 
     public Question(
         int questionIndex, int answerPoint, 
@@ -41,7 +41,11 @@ public abstract class Question implements InterfaceQuestion {
         return answerPoint;
     }
 
+    @Override
     public boolean checkAnswer(String answer){
+         if(answer == null){
+            return false;
+        }
         return this.answer.equalsIgnoreCase(answer);
     }
 }
