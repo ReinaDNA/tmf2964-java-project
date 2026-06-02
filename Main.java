@@ -17,6 +17,5 @@ public class Main {
         // 4. Tell the app which screen to show when it first boots up (Test mode for tyva's part)
         appNavigator.showScreen("INFO_PAGE"); // "INFO_PAGE" is SUBJECT TO CHANGE...
 
-        System.out.println("Six seven");
     }
 }
