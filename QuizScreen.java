@@ -43,13 +43,15 @@ public class QuizScreen extends JPanel{
         nextButton = new JButton("Next Question");
         add(nextButton);
 
-
+        
         nextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                generateNextQuestion(quiz);
+                quiz.verifyQuestionAnswer(quiz.getQuestion(currentIndex));
                 if(currentIndex == quiz.getLastIndex()){
                     endOfQuiz(navigator);
+                }else{
+                    generateNextQuestion(quiz, currentQuestion);
                 }
             }
         });
@@ -58,9 +60,10 @@ public class QuizScreen extends JPanel{
     }
 
     // Fetches the next question in line and serves it.
-    public void generateNextQuestion(Quiz quiz){
+    public void generateNextQuestion(Quiz quiz, InterfaceQuestion currentQuestion){
         removeAll();
         currentIndex++;
+        currentQuestion.clearUserResponse();
         InterfaceQuestion nextQuestion = quiz.getQuestion(currentIndex);
         question.setText(nextQuestion.getQuestion());
         add(question);
@@ -75,7 +78,7 @@ public class QuizScreen extends JPanel{
 
     // Special function for the last question in the quiz.
     public void endOfQuiz(Navigator navigator){
-        remove(nextButton);
+        removeAll();
         JButton finalize = new JButton("Finish quiz");
         add(finalize);
         revalidate();

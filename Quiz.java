@@ -8,7 +8,9 @@ import java.util.Scanner;
 
 public class Quiz {
     ArrayList<InterfaceQuestion> questionBank = new ArrayList<>();
-    int index = 1;
+    int currentPoints = 0; // Initialize the points of the user
+    
+    int index = 1; // THIS INDEX REFERS TO THE QUESTION NUMBER
 
     public void loadQuestionFromFile(){
         try(Scanner qLoader = new Scanner(new File("test.txt"));){
@@ -48,7 +50,7 @@ public class Quiz {
                 // If it is MCQ type question
                 // Parse out the required data
                 String question = questionParts[1];
-                String[] options = {"A) ", "B) ", "C) ", "D) "};
+                String[] options = {" ", " ", " ", " "};
                 for(int i=0; i<options.length; i++){
                     options[i] += questionParts[i+2];
                 }
@@ -63,6 +65,23 @@ public class Quiz {
                 System.out.println("Invalid question type or missing data, unable to create question. Please try again.");
                 return null;
             }
+        }
+
+        public void verifyQuestionAnswer(InterfaceQuestion question){
+            if(question.checkAnswer()){
+                this.currentPoints += question.getPointValue();
+                System.out.println(currentPoints);
+            } else{
+                System.out.println("Incorrect answer, please try again");
+            }         
+        }
+
+        public int getTotalPoints(){
+            int total = 0;
+            for(int i=0; i<questionBank.size(); i++){
+                total += questionBank.get(i).getPointValue();
+            }
+            return total;
         }
 
         public ArrayList<InterfaceQuestion> getQuestionBank(){

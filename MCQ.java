@@ -74,5 +74,7 @@ public class MCQ extends Question {
         return this.userChoice;
     }
 
-   
+    public void clearUserResponse(){
+        this.userChoice = "";
+    }
 }

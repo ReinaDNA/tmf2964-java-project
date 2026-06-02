@@ -15,4 +15,5 @@ public interface InterfaceQuestion {
     public int getIndex();
     public int getPointValue();
     public String getQuestion();
+    public void clearUserResponse();
 }

@@ -42,6 +42,8 @@ public abstract class Question implements InterfaceQuestion {
     
     public abstract String getUserResponse();
 
+    public abstract void clearUserResponse();
+    
     // Setters
     public void setAnswer(){
 
