@@ -16,11 +16,11 @@ public class Navigator implements InterfaceNavigator {
 
     // Constructor to set up the main window
     public Navigator() {
-        frame = new JFrame("SDG Math App");
+        frame = new JFrame("SDG Discrete Math App");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        // Set size for mobile screen layout as required (400x800)
-        frame.setSize(400, 800);
+        // Set size for mobile screen layout as required (400x600)
+        frame.setSize(400, 600);
         
         // Center the window on the computer screen
         frame.setLocationRelativeTo(null);
@@ -46,5 +46,8 @@ public class Navigator implements InterfaceNavigator {
     @Override
     public void showScreen(String screenName) {
         cardLayout.show(mainContainer, screenName);
+
+        mainContainer.revalidate(); // Recalculates the layout with the new panel
+        mainContainer.repaint(); //Forces the window to redraw itself visually
     }
 }
