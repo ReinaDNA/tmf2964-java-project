@@ -1,3 +1,4 @@
+package screens;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -9,6 +10,10 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import core.Navigator;
+import interfaces.InterfaceQuestion;
+import core.Quiz;
 
 public class QuizScreen extends JPanel{
     // Suppress "unused" warnings from terminal

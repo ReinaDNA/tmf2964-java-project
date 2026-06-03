@@ -1,8 +1,14 @@
+package core;
 import javax.swing.JPanel;
+
+
+import screens.Info;
+import screens.QuizScreen;
+import screens.ResultScreen;
 
 public class Main {
     public static void main(String[] args) {
-         Quiz quiz = new Quiz();
+        Quiz quiz = new Quiz();
         quiz.loadQuestionFromFile();
 
         // 1. Start navigator (the main window)

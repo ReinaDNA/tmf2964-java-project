@@ -1,6 +1,6 @@
 // Interface for question 
 // This allows different types of question with the same base.
-
+package interfaces;
 import javax.swing.JComponent;
 
 public interface InterfaceQuestion {

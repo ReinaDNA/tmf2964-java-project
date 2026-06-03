@@ -1,8 +1,10 @@
 // Main class that implements question
 // Created by:
-
+package questions;
 import java.util.Scanner;
 import javax.swing.JComponent;
+
+import interfaces.InterfaceQuestion;
 
 public abstract class Question implements InterfaceQuestion {
     String question;

@@ -1,8 +1,11 @@
 // Class for the gamification elements
 // Created by: Seng Zhi Jie (106256)
+package core;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import interfaces.InterfaceGameEngine;
 
 public class GameEngine implements InterfaceGameEngine{
     int healthBar = 5; // Each player has an initial health of 5

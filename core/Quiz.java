@@ -1,10 +1,14 @@
 // Quiz class to generate questions
 // Created by:
+package core;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import interfaces.InterfaceQuestion;
+import questions.MCQ;
 
 public class Quiz {
     ArrayList<InterfaceQuestion> questionBank = new ArrayList<>();
@@ -13,7 +17,7 @@ public class Quiz {
     int index = 1; // THIS INDEX REFERS TO THE QUESTION NUMBER
 
     public void loadQuestionFromFile(){
-        try(Scanner qLoader = new Scanner(new File("test.txt"));){
+        try(Scanner qLoader = new Scanner(new File("./data/questions.txt"));){
             // Loops through the question bank
             do{
                 index = 1; // Resets the index just in case 
