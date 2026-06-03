@@ -43,6 +43,10 @@ public class MultipleChoiceQuestion extends Question {
             @Override
             public void actionPerformed(ActionEvent e){
                 userChoice = e.getActionCommand();
+
+                if(nextButton != null){
+                    nextButton.setEnabled(true);
+                }
             }
         };
 
@@ -67,8 +71,18 @@ public class MultipleChoiceQuestion extends Question {
     }
 
     @Override
+    public String getCorrectAnswer(){
+        return this.correctAnswer;
+    }
+
+    @Override
     public boolean checkAnswer(){
-        return userChoice.equalsIgnoreCase(correctAnswer);
+        if(userChoice == null){
+            System.out.println("You haven't answer the question yet. don't go next!");
+            return false;
+        }else{
+            return userChoice.equalsIgnoreCase(correctAnswer);
+        }
     }
 
     public String getUserResponse(){

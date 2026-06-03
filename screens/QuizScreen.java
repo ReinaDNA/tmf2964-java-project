@@ -21,6 +21,8 @@ public class QuizScreen extends JPanel{
     private Navigator navigator;
     private JButton nextButton;
     private JLabel question;
+    private JLabel feedbackLabel;
+    private boolean isClickedOnce = false;
     // Page index constant
     private int currentIndex = 0;
 
@@ -44,20 +46,43 @@ public class QuizScreen extends JPanel{
             add(answerComponents[i]);
             answerComponents[i].setAlignmentX(Component.LEFT_ALIGNMENT);
         }
-
+        feedbackLabel = new JLabel("Incorrect Answer! The correct answer is " + currentQuestion.getCorrectAnswer() + ".");
+        feedbackLabel.setVisible(false);
         nextButton = new JButton("Next Question");
         add(nextButton);
+        add(feedbackLabel);
+        currentQuestion.setNextButton(nextButton);
+        nextButton.setEnabled(false);
 
         
         nextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                quiz.verifyQuestionAnswer(quiz.getQuestion(currentIndex));
-                if(currentIndex == quiz.getLastIndex()){
-                    endOfQuiz(navigator);
+                if(isClickedOnce){
+                    isClickedOnce = false;
+                    feedbackLabel.setVisible(false);
+                    nextButton.setText("Next Question");
+                    if(currentIndex == quiz.getLastIndex()){
+                        endOfQuiz(navigator);
+                    }else{
+                        generateNextQuestion(quiz, currentQuestion);
+                    }
                 }else{
-                    generateNextQuestion(quiz, currentQuestion);
+                    boolean userAnswer = quiz.verifyQuestionAnswer(quiz.getQuestion(currentIndex));
+                    if(userAnswer){
+                        if(currentIndex == quiz.getLastIndex()){
+                            endOfQuiz(navigator);
+                        }else{
+                            generateNextQuestion(quiz, currentQuestion);
+                        }
+                    }else{
+                        isClickedOnce = true;
+                        nextButton.setText("Continue");
+                        feedbackLabel.setVisible(true);
+                    }
                 }
+                
+                
             }
         });
        
@@ -71,12 +96,17 @@ public class QuizScreen extends JPanel{
         currentQuestion.clearUserResponse();
         InterfaceQuestion nextQuestion = quiz.getQuestion(currentIndex);
         question.setText(nextQuestion.getQuestion());
+        feedbackLabel.setText("Incorrect Answer! The correct answer is " + nextQuestion.getCorrectAnswer() + ".");
+        feedbackLabel.setVisible(false);
         add(question);
         JComponent[] newComponents = nextQuestion.createAnswerComponents();
         for(int i=0; i<newComponents.length; i++){
             add(newComponents[i]);
         }
         add(nextButton);
+        add(feedbackLabel);
+        nextButton.setEnabled(false);
+        nextQuestion.setNextButton(nextButton);
         revalidate();
         repaint();
     }

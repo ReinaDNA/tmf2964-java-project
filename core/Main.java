@@ -1,8 +1,9 @@
 package core;
 import javax.swing.JPanel;
 
-
+import screens.HomeScreen;
 import screens.InfoScreen;
+import screens.LeaderBoardScreen;
 import screens.QuizScreen;
 import screens.ResultScreen;
 
@@ -13,17 +14,18 @@ public class Main {
 
         // 1. Start navigator (the main window)
         Navigator appNavigator = new Navigator();
-        
-        // 2. Initialize Tvya's & Maliska's classes
         JPanel infoPanel = new InfoScreen();
+        HomeScreen homeScreen = new HomeScreen(appNavigator);
         QuizScreen quizScreen = new QuizScreen(appNavigator, quiz);
-        ResultScreen resultScreen = new ResultScreen(appNavigator);
+        ResultScreen resultScreen = new ResultScreen(appNavigator, quiz);
+        LeaderBoardScreen leaderBoardScreen = new LeaderBoardScreen(appNavigator);
 
-        // 3. Register Tvya's & Maliska's panel into Navigator.java
         appNavigator.addScreen("INFO_PAGE", infoPanel);
         appNavigator.addScreen("Quiz", quizScreen);
         appNavigator.addScreen("Result Screen", resultScreen);
-        // 4. Tell the app which screen to show when it first boots up (Test mode for tyva's part)
-        appNavigator.showScreen("Quiz"); // "INFO_PAGE" is SUBJECT TO CHANGE...
+        appNavigator.addScreen("Home Screen", homeScreen);
+        appNavigator.addScreen("Leaderboards", leaderBoardScreen);
+        // Tell the app which screen to show when it first boots up (Test mode for tyva's part)
+        appNavigator.showScreen("Home Screen"); // "INFO_PAGE" is SUBJECT TO CHANGE...
     }
 }

@@ -3,7 +3,7 @@ package questions;
 // Created by:
 import java.util.Scanner;
 import javax.swing.JComponent;
-
+import javax.swing.JButton;
 import interfaces.InterfaceQuestion;
 
 public abstract class Question implements InterfaceQuestion {
@@ -12,6 +12,8 @@ public abstract class Question implements InterfaceQuestion {
     int index;
     int pointValue;
     boolean isCorrect = false;
+
+    protected JButton nextButton; 
 
     public Question(int index, String question, int pointValue){
         // Creates a question object with prompt and answer
@@ -45,6 +47,8 @@ public abstract class Question implements InterfaceQuestion {
     public abstract String getUserResponse();
 
     public abstract void clearUserResponse();
+
+    public abstract String getCorrectAnswer();
     
     // Setters
     public void setAnswer(){
@@ -66,6 +70,10 @@ public abstract class Question implements InterfaceQuestion {
 
     public String getQuestion(){
         return this.question;
+    }
+
+    public void setNextButton(JButton btn){
+        this.nextButton = btn;
     }
 }
 
