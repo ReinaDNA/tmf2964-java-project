@@ -1,6 +1,7 @@
+package interfaces;
+import javax.swing.JButton;
 // Interface for question 
 // This allows different types of question with the same base.
-package interfaces;
 import javax.swing.JComponent;
 
 public interface InterfaceQuestion {
@@ -16,4 +17,6 @@ public interface InterfaceQuestion {
     public int getPointValue();
     public String getQuestion();
     public void clearUserResponse();
+    public void setNextButton(JButton btn);
+    public String getCorrectAnswer();
 }

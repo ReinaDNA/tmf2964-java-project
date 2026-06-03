@@ -1,6 +1,6 @@
+package interfaces;
 // Interface for Gamification Element 
 // Created by: Seng Zhi Jie (106256)
-package interfaces;
 public interface InterfaceGameEngine {
     // This interface will hold all elements related to the Game engine
     // Timer methods

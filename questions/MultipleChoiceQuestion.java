@@ -1,6 +1,6 @@
+package questions;
 // Question Type: Multiple Choice Question
 // Inherits from Question to make different types of questions
-package questions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,14 +8,14 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 
-public class MCQ extends Question {
+public class MultipleChoiceQuestion extends Question {
     String[] optionsDesc = {"A) ", "B) ", "C) ", "D) "};
     char[] options = {'a', 'b', 'c', 'd'};
     String correctAnswer;
     String userChoice;
     
 
-    public MCQ(int index, String question, int pointValue, String[] optionsDesc, String correctAnswer){
+    public MultipleChoiceQuestion(int index, String question, int pointValue, String[] optionsDesc, String correctAnswer){
         super(index, question, pointValue);
         this.correctAnswer = correctAnswer; 
         for(int i=0; i< optionsDesc.length; i++){
@@ -43,6 +43,10 @@ public class MCQ extends Question {
             @Override
             public void actionPerformed(ActionEvent e){
                 userChoice = e.getActionCommand();
+
+                if(nextButton != null){
+                    nextButton.setEnabled(true);
+                }
             }
         };
 
@@ -67,8 +71,18 @@ public class MCQ extends Question {
     }
 
     @Override
+    public String getCorrectAnswer(){
+        return this.correctAnswer;
+    }
+
+    @Override
     public boolean checkAnswer(){
-        return userChoice.equalsIgnoreCase(correctAnswer);
+        if(userChoice == null){
+            System.out.println("You haven't answer the question yet. don't go next!");
+            return false;
+        }else{
+            return userChoice.equalsIgnoreCase(correctAnswer);
+        }
     }
 
     public String getUserResponse(){

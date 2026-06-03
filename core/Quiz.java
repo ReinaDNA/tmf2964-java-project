@@ -1,6 +1,6 @@
+package core;
 // Quiz class to generate questions
 // Created by:
-package core;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import interfaces.InterfaceQuestion;
-import questions.MCQ;
+import questions.MultipleChoiceQuestion;
+import questions.TrueFalseQuestion;
 
 public class Quiz {
     ArrayList<InterfaceQuestion> questionBank = new ArrayList<>();
@@ -60,24 +61,33 @@ public class Quiz {
                 }
                 String correctAnswer = questionParts[6];
                 int pointValue = Integer.parseInt(questionParts[7]);
-                InterfaceQuestion newQuestion = new MCQ(index, question, pointValue, options, correctAnswer);
+                InterfaceQuestion newQuestion = new MultipleChoiceQuestion(index, question, pointValue, options, correctAnswer);
                 return newQuestion;
             }else if(questionType.equalsIgnoreCase("TF") && questionParts.length == 4){
-                return null;
                 // If it is True/False question
+                String question = questionParts[1];
+                String correctAnswer = questionParts[2];
+                int pointValue = Integer.parseInt(questionParts[3]);
+                InterfaceQuestion newQuestion = new TrueFalseQuestion(index, question, pointValue, correctAnswer);
+                return newQuestion;
             }else{
                 System.out.println("Invalid question type or missing data, unable to create question. Please try again.");
                 return null;
             }
         }
 
-        public void verifyQuestionAnswer(InterfaceQuestion question){
+        public boolean verifyQuestionAnswer(InterfaceQuestion question){
             if(question.checkAnswer()){
                 this.currentPoints += question.getPointValue();
                 System.out.println(currentPoints);
+                return true;
             } else{
-                System.out.println("Incorrect answer, please try again");
+                return false;
             }         
+        }
+
+        public void resetQuiz(){
+            this.currentPoints = 0; //Resets the quiz
         }
 
         public int getTotalPoints(){
@@ -86,6 +96,11 @@ public class Quiz {
                 total += questionBank.get(i).getPointValue();
             }
             return total;
+        }
+
+        public double calculateFinalScore(){
+            double resultPercentage = ((double)currentPoints/getTotalPoints())*100;
+            return resultPercentage;
         }
 
         public ArrayList<InterfaceQuestion> getQuestionBank(){
@@ -104,5 +119,8 @@ public class Quiz {
             return questionBank.get(index);
         }
 
+        public int getCurrentPoints(){
+            return currentPoints;
+        }
         
 }

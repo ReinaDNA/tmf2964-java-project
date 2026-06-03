@@ -1,6 +1,6 @@
+package screens;
 //The GUI panel that displays at least 10 pages of Discrete Math lessons.
 //Created by : Tvya 
-package screens;
 import javax.swing.*;
 
 import interfaces.InterfaceInfo;
@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Info extends JPanel implements InterfaceInfo {
+public class InfoScreen extends JPanel implements InterfaceInfo {
     
     // UI Components
     private JTextArea lessonTextArea;
@@ -24,7 +24,7 @@ public class Info extends JPanel implements InterfaceInfo {
     private String[] pageTexts = new String[10]; // ***EDIT String[n] to increase/decrease number of pages***
     private String[] imagePaths = new String[10]; // ***EDIT String[n] to increase/decrease number of pages***
 
-    public Info() {
+    public InfoScreen() {
         // Set up the layout
         setLayout(new BorderLayout());
         
