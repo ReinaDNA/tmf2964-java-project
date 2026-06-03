@@ -8,14 +8,14 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 
-public class MCQ extends Question {
+public class MultipleChoiceQuestion extends Question {
     String[] optionsDesc = {"A) ", "B) ", "C) ", "D) "};
     char[] options = {'a', 'b', 'c', 'd'};
     String correctAnswer;
     String userChoice;
     
 
-    public MCQ(int index, String question, int pointValue, String[] optionsDesc, String correctAnswer){
+    public MultipleChoiceQuestion(int index, String question, int pointValue, String[] optionsDesc, String correctAnswer){
         super(index, question, pointValue);
         this.correctAnswer = correctAnswer; 
         for(int i=0; i< optionsDesc.length; i++){

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import interfaces.InterfaceQuestion;
-import questions.MCQ;
+import questions.MultipleChoiceQuestion;
 
 public class Quiz {
     ArrayList<InterfaceQuestion> questionBank = new ArrayList<>();
@@ -60,7 +60,7 @@ public class Quiz {
                 }
                 String correctAnswer = questionParts[6];
                 int pointValue = Integer.parseInt(questionParts[7]);
-                InterfaceQuestion newQuestion = new MCQ(index, question, pointValue, options, correctAnswer);
+                InterfaceQuestion newQuestion = new MultipleChoiceQuestion(index, question, pointValue, options, correctAnswer);
                 return newQuestion;
             }else if(questionType.equalsIgnoreCase("TF") && questionParts.length == 4){
                 return null;

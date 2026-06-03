@@ -2,7 +2,7 @@ package core;
 import javax.swing.JPanel;
 
 
-import screens.Info;
+import screens.InfoScreen;
 import screens.QuizScreen;
 import screens.ResultScreen;
 
@@ -15,7 +15,7 @@ public class Main {
         Navigator appNavigator = new Navigator();
         
         // 2. Initialize Tvya's & Maliska's classes
-        JPanel infoPanel = new Info();
+        JPanel infoPanel = new InfoScreen();
         QuizScreen quizScreen = new QuizScreen(appNavigator, quiz);
         ResultScreen resultScreen = new ResultScreen(appNavigator);
 
