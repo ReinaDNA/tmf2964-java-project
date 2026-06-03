@@ -1,6 +1,6 @@
+package questions;
 // Main class that implements question
 // Created by:
-package questions;
 import java.util.Scanner;
 import javax.swing.JComponent;
 

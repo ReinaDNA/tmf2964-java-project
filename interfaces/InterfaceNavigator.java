@@ -1,8 +1,8 @@
+package interfaces;
 /*
  - The blueprint to guide through the SDG Math App.
  - Created by: Arif Amirul Aiman Bin Marzuki (83282)
  */ 
-package interfaces;
 import javax.swing.JPanel;
 
 public interface InterfaceNavigator {

@@ -1,6 +1,6 @@
+package core;
 // Class for the gamification elements
 // Created by: Seng Zhi Jie (106256)
-package core;
 
 import java.util.Timer;
 import java.util.TimerTask;

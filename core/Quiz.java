@@ -1,6 +1,6 @@
+package core;
 // Quiz class to generate questions
 // Created by:
-package core;
 
 import java.io.File;
 import java.io.FileNotFoundException;

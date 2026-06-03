@@ -1,6 +1,6 @@
+package questions;
 // Question Type: Multiple Choice Question
 // Inherits from Question to make different types of questions
-package questions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
