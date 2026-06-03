@@ -86,6 +86,10 @@ public class Quiz {
             }         
         }
 
+        public void resetQuiz(){
+            this.currentPoints = 0; //Resets the quiz
+        }
+
         public int getTotalPoints(){
             int total = 0;
             for(int i=0; i<questionBank.size(); i++){

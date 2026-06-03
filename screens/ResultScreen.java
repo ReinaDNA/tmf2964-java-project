@@ -26,6 +26,7 @@ public class ResultScreen extends JPanel{
         double finalPercentage = quiz.calculateFinalScore();
         int finalPoints = quiz.getCurrentPoints();
         int totalPoints = quiz.getTotalPoints();
+    
 
         statement = new JLabel("Some statement here.");
         score = new JLabel("Your score is: " + finalPoints + "/" + totalPoints);
@@ -37,11 +38,12 @@ public class ResultScreen extends JPanel{
         add(percentageLabel);
         add(returnHome);
 
-
+        
         returnHome.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
                 navigator.showScreen("Home Screen");
+                quiz.resetQuiz();
             }
         });
     }    

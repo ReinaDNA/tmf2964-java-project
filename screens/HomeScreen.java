@@ -12,7 +12,7 @@ import core.Navigator;
 public class HomeScreen extends JPanel{
     @SuppressWarnings("unused")
     private Navigator navigator;
-    public HomeScreen(Navigator navigator){
+    public HomeScreen(Navigator navigator, QuizScreen quizScreen){
         this.navigator = navigator;
 
         // Set the layout of the GUI
@@ -43,6 +43,8 @@ public class HomeScreen extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e){
                 navigator.showScreen("Quiz");
+                quizScreen.resetQuizScreen();
+                
             }
         });
 

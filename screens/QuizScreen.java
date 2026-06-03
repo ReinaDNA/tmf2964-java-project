@@ -23,6 +23,7 @@ public class QuizScreen extends JPanel{
     private JLabel question;
     private JLabel feedbackLabel;
     private boolean isClickedOnce = false;
+    private Quiz quiz;
     // Page index constant
     private int currentIndex = 0;
 
@@ -30,6 +31,7 @@ public class QuizScreen extends JPanel{
     public QuizScreen(Navigator navigator, Quiz quiz){
         // Pass in the navigator used from Main.java
         this.navigator = navigator;
+        this.quiz = quiz;
 
         // Set the layout of the GUI
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -63,7 +65,7 @@ public class QuizScreen extends JPanel{
                     feedbackLabel.setVisible(false);
                     nextButton.setText("Next Question");
                     if(currentIndex == quiz.getLastIndex()){
-                        endOfQuiz(navigator);
+                        endOfQuiz(navigator, quiz);
                     }else{
                         generateNextQuestion(quiz, currentQuestion);
                     }
@@ -71,7 +73,7 @@ public class QuizScreen extends JPanel{
                     boolean userAnswer = quiz.verifyQuestionAnswer(quiz.getQuestion(currentIndex));
                     if(userAnswer){
                         if(currentIndex == quiz.getLastIndex()){
-                            endOfQuiz(navigator);
+                            endOfQuiz(navigator, quiz);
                         }else{
                             generateNextQuestion(quiz, currentQuestion);
                         }
@@ -112,7 +114,7 @@ public class QuizScreen extends JPanel{
     }
 
     // Special function for the last question in the quiz.
-    public void endOfQuiz(Navigator navigator){
+    public void endOfQuiz(Navigator navigator, Quiz quiz){
         removeAll();
         JButton finalize = new JButton("Finish quiz");
         add(finalize);
@@ -122,8 +124,29 @@ public class QuizScreen extends JPanel{
         finalize.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
+                ResultScreen resultScreen = new ResultScreen(navigator, quiz);
+                navigator.addScreen("Result Screen", resultScreen);
                 navigator.showScreen("Result Screen");
+                resetQuizScreen();
             }
         });
+    }
+
+    public void resetQuizScreen(){
+        this.currentIndex = 0;
+        removeAll();
+        InterfaceQuestion currentQuestion = quiz.getQuestion(currentIndex);
+        question.setText(currentQuestion.getQuestion());
+        add(question);
+        JComponent[] answerComponents = currentQuestion.createAnswerComponents();
+        for(int i = 0; i<answerComponents.length; i++){
+            add(answerComponents[i]);
+            answerComponents[i].setAlignmentX(Component.LEFT_ALIGNMENT);
+        }
+        add(nextButton);
+        add(feedbackLabel);
+        feedbackLabel.setText("Incorrect Answer! The correct answer is " + currentQuestion.getCorrectAnswer() + ".");
+        feedbackLabel.setVisible(false);
+        nextButton.setEnabled(false);
     }
 }
