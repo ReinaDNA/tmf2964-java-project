@@ -146,7 +146,7 @@ public class QuizScreen extends JPanel{
         JButton finalize = new JButton("Finish quiz");
         
         // ADDED: Center the finish button
-        finalize.setAlignmentX(Component.LEFT_ALIGNMENT); 
+        finalize.setAlignmentX(Component.CENTER_ALIGNMENT); 
         add(Box.createVerticalStrut(200)); // ADDED: Push it down to the middle of the screen
         add(finalize);
         
