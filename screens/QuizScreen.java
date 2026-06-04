@@ -221,13 +221,12 @@ public class QuizScreen extends JPanel{
             add(Box.createVerticalStrut(150));
             add(gameOverLabel);
             
-            // Message Label
+            
             JLabel messageLabel = new JLabel("You ran out of health!");
             messageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
             add(Box.createVerticalStrut(20));
             add(messageLabel);
 
-            // Back to Home button
             JButton backToHome = new JButton("Back to Home");
             backToHome.setAlignmentX(Component.CENTER_ALIGNMENT);
             add(Box.createVerticalStrut(20));
@@ -248,6 +247,7 @@ public class QuizScreen extends JPanel{
             add(Box.createVerticalStrut(200)); // Push it down to the middle of the screen
             add(finalize);
             
+       
             finalize.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e){
@@ -261,6 +261,8 @@ public class QuizScreen extends JPanel{
         }
         revalidate();
         repaint();
+
+        
     }
 
     public void resetQuizScreen(){
