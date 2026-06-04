@@ -159,6 +159,7 @@ public class QuizScreen extends JPanel{
                 // Treat it like a wrong answer, flip the isClicked switch
                 isClickedOnce = true;
                 nextButton.setText("Continue");
+                nextButton.setEnabled(true);
                 feedbackLabel.setText("Time's up! The correct answer is " + currentQuestion.getCorrectAnswer());
                 feedbackLabel.setVisible(true);
                 gameEngine.takeDamage(1);

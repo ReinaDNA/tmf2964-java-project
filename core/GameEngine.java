@@ -21,11 +21,12 @@ public class GameEngine implements InterfaceGameEngine {
     public GameEngine() {
         // Swing Timer ticks every 1000ms (1 second)
         timer = new Timer(1000, e -> {
+            seconds--;
             if(tickAction != null){
                 tickAction.actionPerformed(e);
             }
-            seconds--;
             if (seconds <= 0) {
+                seconds = 0;
                 stopTimer();
                 // Notify the UI that time is up
                 if (timeUpAction != null) {
