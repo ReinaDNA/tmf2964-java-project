@@ -1,13 +1,11 @@
 package screens;
 //The GUI panel that displays at least 10 pages of Discrete Math lessons.
 //Created by : Tvya 
-import javax.swing.*;
-
 import interfaces.InterfaceInfo;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.*;
 
 public class InfoScreen extends JPanel implements InterfaceInfo {
     
@@ -76,35 +74,55 @@ public class InfoScreen extends JPanel implements InterfaceInfo {
 
     @Override
     public void setupContent() {
-// ----------------- Hey Tyva! Edit your TEXT here -----------------
-        pageTexts[0] = "Page 1: Welcome to Quality Education. Let's learn Basic Discrete Math!";
-        pageTexts[1] = "Page 2: Put your topic 1 text here.";
-        pageTexts[2] = "Page 3: Put your topic 2 text here.";
-        pageTexts[3] = "Page 4: Put your topic 3 text here.";
-        pageTexts[4] = "Page 5: Put your topic 4 text here.";
-        pageTexts[5] = "Page 6: Put your topic 5 text here.";
-        pageTexts[6] = "Page 7: Put your topic 6 text here.";
-        pageTexts[7] = "Page 8: Put your topic 7 text here.";
-        pageTexts[8] = "Page 9: Put your topic 8 text here.";
-        pageTexts[9] = "Page 10: You finished the lesson! Ready for the quiz?";
-// ---- Copy and paste the line above if you decide to add more pages, just remember to also increase the array size above at the initialization. ----
-// ----------------- Hey Tyva! Edit your TEXT here -----------------
+        pageTexts[0] = "Page 1: Relations \nThis is a matching rule where every starting number on the left is paired with exactly one specific number on the right.";
+        pageTexts[1] = "Page 2: Conditional Statement \nThe logical conditional p -> q evaluate to TRUE in all scenario unless the premise of p is TRUE and conclusion q is FALSE.";
+        pageTexts[2] = """
+                        Page 3: Set Theory \nAn intersection creates a new group containing only the specific items that are present in both of the original sets.
+                                            \nA union merges all items from the original sets into one large group without counting any recurring items twice.
+                                            \nA proper subset is a smaller group whose items are all found inside a larger group, but the two groups are not exactly identical.
+                                            \nA subset is a group whose items are all found inside another group, even if both groups happen to contain the exact same items.
+                                            \nNot a proper subset means that a group is either not contained within another group at all, or it is entirely identical to it.
+                                            \nA superset is the larger overarching group that entirely contains all the items of a smaller group.
+                                            \nBeing a member means a specific element exists inside that particular group.
+                                            \nNot being a member means that specific element cannot be found anywhere inside the group.
+                        """;
+        pageTexts[3] = "Page 4: Probability \nMutually Exclusive \nTwo separate outcomes could never occur at the same time. In probability, this event occurring at either the sum of their individual chances.";
+        pageTexts[4] = "Page 5: Probability \nNon-mutually Exclusive \nTwo separate outcomes can occur at the exact same time. In probability, the chance of either event occurring is the sum of their individual chances minus the overlapping probability of them both happening together.";
+        pageTexts[5] = """
+                        Page 6: Predicates and Quantifiers \nThe upside down \"A\" stands for \"All\" which means a universal condition.
+                                                            \nThe flipped "E" symbol is for "Exist", at least it is applied to one element but not all.
+                                                            \nThe hook symbol is a negation symbol. It's simply logically flipped of the element that follows it.
+                        """;
+        pageTexts[6] = """
+                        Page 7: Propositional Logic \nAtomic Propositions: A simple statement with no logical connectives that cannot be broken down further.
+                                                    \nCompound Propositions: A statement formed by combining atomic propositions using logical connectives like AND, OR, or NOT.
+                                                    \nNegation (NOT): A statement formed by completely reversing the truth value of a single proposition.
+                                                    \nConjunction (AND): A compound proposition formed by connecting two statements, which evaluates to true strictly when both individual statements are true.
+                                                    \nDisjunction (OR): A compound proposition formed by connecting two statements, which evaluates to true when at least one of the individual statements is true.
+                                                    \nConditional (If...Then): A compound proposition where the first statement acts as a strict condition that, if true, guarantees the truth of the second statement.
+                                                    \nBiconditional (If and only if): A compound proposition formed by connecting two statements, which evaluates to true strictly when both statements share the exact same truth value.
+                        """;
+        pageTexts[7] = "Page 8: Set Identities \nSet identities act as the fundamental operational laws for simplifying complex mathematical groups and logical statements. It establish how universal and empty sets interact to preserve or override data, how to safely rearrange or distribute independent sets without compromising the final mathematical outcome and how to utilize rules like De Morgan's and Absorption to handle logical opposites and immediately eliminate redundant information.";
+        pageTexts[8] = """
+                        Page 9: Relations and Functions \nReflexive: Every single point within the system contains an arrow that loops directly back onto itself.
+                                                        \nSymmetric: Any arrow pointing from one point to another is immediately mirrored by a return arrow pointing in the exact opposite direction.
+                                                        \nTransitive: A path traveling from a first point to a second, and then continuing to a third, is always accompanied by a shortcut arrow pointing directly from the first point to the third.
+                        """;
+        pageTexts[9] = "Page 10: Cartesian Product \nAn operation that creates a new set containing all possible ordered pairs, where the first element in every pair is drawn strictly from Set A, and the second element is drawn strictly from Set B (A X B)";
 
-// ----------- Hey Tyva! Edit your IMAGE here -----------
-// ---- Change the word dummy to your actual image names ----
+        // Image path
         imagePaths[0] = "img/dm1.jpg"; 
-        imagePaths[1] = "img/dummy.jpg";
-        imagePaths[2] = "img/dummy.jpg";
-        imagePaths[3] = "img/dummy.jpg";
-        imagePaths[4] = "img/dummy.jpg";
-        imagePaths[5] = "img/dummy.jpg";
-        imagePaths[6] = "img/dummy.jpg";
-        imagePaths[7] = "img/dummy.jpg";
-        imagePaths[8] = "img/dummy.jpg";
-        imagePaths[9] = "img/dummy.jpg";
-// ---- Copy and paste the line above if more pages needed, just remember to also increase the array size above at the initialization. ----
+        imagePaths[1] = "img/dm2.png";
+        imagePaths[2] = "img/dm3.png";
+        imagePaths[3] = "img/dm4.png";
+        imagePaths[4] = "img/dm5.png";
+        imagePaths[5] = "img/dm6.png";
+        imagePaths[6] = "img/dm7.png";
+        imagePaths[7] = "img/dm8.jpeg";
+        imagePaths[8] = "img/dm9.png";
+        imagePaths[9] = "img/dm10.png";
     }
-// ^------------^ Hey Tyva! Edit your IMAGE here ^------------^
+// ^------------^ Edit Image ^------------^
 
     @Override
     public void updateDisplay(int pageIndex) {
