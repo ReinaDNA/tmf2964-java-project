@@ -8,26 +8,12 @@ public interface InterfaceGameEngine {
     public void stopTimer();
     public int getElaspedTime();
     public void resetTimer();
-    
-    // // Badge System methods
-    // public void awardBadge();
-    // public void getUserBadges();
-    // public void checkBadgeEligibility();
-    // public void revokeBadge();
 
     // Health System methods
     public void takeDamage(int amount);
     public void heal(int amount);
     public int getCurrentHealth();
     public boolean isAlive();
+    public String getHealthString();
 
-    // // Leaderboard methods
-    // public void addEntry(int score);
-    // public void getLeaderboard();
-    // public int getPlayerRank();
-
-    // // Progress methods
-    // public void saveGame();
-    // public void loadGame();
-    // public void deleteSave();
 }

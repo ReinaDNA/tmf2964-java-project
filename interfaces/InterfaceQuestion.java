@@ -2,11 +2,12 @@ package interfaces;
 import javax.swing.JButton;
 // Interface for question 
 // This allows different types of question with the same base.
+// Created by: Mohamad Ikhmal Iskandar bin Mohd Ibrahim  (105016)
+
 import javax.swing.JComponent;
 
 public interface InterfaceQuestion {
     // Base requirements for a single question.
-    public void askQuestion();
     public void setQuestion(String input);
     public JComponent[] createAnswerComponents();
     public void setAnswer();

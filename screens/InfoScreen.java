@@ -1,6 +1,7 @@
 package screens;
 //The GUI panel that displays at least 10 pages of Discrete Math lessons.
-//Created by : Tvya 
+// Created by: Thiveya Shree a/p Baskaran (106564)
+
 import javax.swing.*;
 
 import core.Navigator;
@@ -8,7 +9,6 @@ import interfaces.InterfaceInfo;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
 
 public class InfoScreen extends JPanel implements InterfaceInfo {
     
@@ -18,6 +18,7 @@ public class InfoScreen extends JPanel implements InterfaceInfo {
     private JButton nextBtn;
     private JButton prevBtn;
     private JButton backBtn;
+    @SuppressWarnings("unused")
     private Navigator navigator;
     
     

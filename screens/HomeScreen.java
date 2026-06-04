@@ -71,8 +71,8 @@ public class HomeScreen extends JPanel {
         quizButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                navigator.showScreen("Quiz");
-                quizScreen.resetQuizScreen();
+                navigator.showScreen("Username Screen");
+                quizScreen.resetQuizScreen(); // Resets the quiz object and screen 
             }
         });
 

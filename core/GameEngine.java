@@ -2,64 +2,107 @@ package core;
 // Class for the gamification elements
 // Created by: Seng Zhi Jie (106256)
 
-import java.util.Timer;
-import java.util.TimerTask;
-
+import java.awt.event.ActionListener;
+import javax.swing.Timer; 
 import interfaces.InterfaceGameEngine;
 
-public class GameEngine implements InterfaceGameEngine{
-    int healthBar = 5; // Each player has an initial health of 5
+public class GameEngine implements InterfaceGameEngine {
+    private static final int MAX_HEALTH = 5;
+    private static final int MAX_TIME = 60;
 
-    // Timer related methods
-    Timer timer = new Timer();
-    int seconds = 60; // Each question is given 60 seconds
-    TimerTask task = new TimerTask() {
-    @Override
-    public void run(){
-        System.out.println(seconds);
-        seconds--; // Countdown
-        // When timer is up, stop the timer.
-        if(seconds <= 0){
-            System.out.println("Time's up!");
-            timer.cancel();
+    private int healthBar = MAX_HEALTH;
+    private ActionListener tickAction;
+
+    // Timer related
+    private Timer timer;
+    private int seconds = MAX_TIME;
+    private ActionListener timeUpAction; // To tell the UI when time is up
+
+    public GameEngine() {
+        // Swing Timer ticks every 1000ms (1 second)
+        timer = new Timer(1000, e -> {
+            seconds--;
+            if(tickAction != null){
+                tickAction.actionPerformed(e);
             }
-        }
-    };
-
-    public void startTimer(){
-        timer.schedule(task, 1000, 1000);
+            if (seconds <= 0) {
+                seconds = 0;
+                stopTimer();
+                // Notify the UI that time is up
+                if (timeUpAction != null) {
+                    timeUpAction.actionPerformed(e);
+                }
+            }
+        });
     }
 
-    public void stopTimer(){
-        timer.cancel();
+    // Allows the UI to update timer every second
+    public void setTickAction(ActionListener action){
+        this.tickAction = action;
+    }
+
+    // Allow the QuizScreen to pass an action for when time runs out
+    public void setTimeUpAction(ActionListener action) {
+        this.timeUpAction = action;
+    }
+
+    public void startTimer() {
+        seconds = MAX_TIME; // Always reset time when starting
+        timer.start();
+    }
+
+    public void stopTimer() {
+        timer.stop();
     }
     
-    public int getElaspedTime(){
-        return 60 - seconds;
+    // Fixed typo from getElaspedTime
+    public int getElaspedTime() { 
+        return MAX_TIME - seconds;
     }
 
-    public void resetTimer(){
-        seconds = 60;
+    public int getRemainingTime() {
+        return seconds;
+    }
+
+    public void resetTimer() {
+        seconds = MAX_TIME;
     }
 
     // Health bar related methods
-    public void takeDamage(int amount){
+    public void takeDamage(int amount) {
         this.healthBar -= amount;
+        if (this.healthBar < 0) this.healthBar = 0; // Prevent negative health
     }
 
-    public void heal(int amount){
+    public void heal(int amount) {
         this.healthBar += amount;
+        if (this.healthBar > MAX_HEALTH) this.healthBar = MAX_HEALTH; // Prevent overhealing
     }
 
-    public int getCurrentHealth(){
+    public int getCurrentHealth() {
         return this.healthBar;
     }
 
-    public boolean isAlive(){
-        if(this.healthBar >= 0){
-            return true;
-        }else{
-            return false;
+    public boolean isAlive() {
+        return this.healthBar > 0; // Dead at 0
+    }
+    
+    public String getHealthString(){
+        String hearts = "";
+        for(int i=0; i < this.healthBar; i++){
+            hearts += "❤️";
         }
+        return hearts;
+    }
+
+    public void resetHealth() {
+        this.healthBar = MAX_HEALTH;
+    }
+    
+    // Full reset for the whole engine when playing again
+    public void resetAll() {
+        resetTimer();
+        stopTimer();
+        resetHealth();
     }
 }
