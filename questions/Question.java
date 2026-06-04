@@ -75,6 +75,7 @@ public abstract class Question implements InterfaceQuestion {
     public void setNextButton(JButton btn){
         this.nextButton = btn;
     }
+
 }
 
 // Further extend this class to implement different question types

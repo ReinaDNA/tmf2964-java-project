@@ -13,9 +13,10 @@ import questions.TrueFalseQuestion;
 
 public class Quiz {
     ArrayList<InterfaceQuestion> questionBank = new ArrayList<>();
-    int currentPoints = 0; // Initialize the points of the user
+    private String username;
+    private int currentPoints = 0; // Initialize the points of the user
     
-    int index = 1; // THIS INDEX REFERS TO THE QUESTION NUMBER
+    private int index = 1; // THIS INDEX REFERS TO THE QUESTION NUMBER
 
     public void loadQuestionFromFile(){
         try(Scanner qLoader = new Scanner(new File("./data/questions.txt"));){
@@ -88,6 +89,7 @@ public class Quiz {
 
         public void resetQuiz(){
             this.currentPoints = 0; //Resets the quiz
+            this.username = ""; // Reset username
         }
 
         public int getTotalPoints(){
@@ -121,6 +123,14 @@ public class Quiz {
 
         public int getCurrentPoints(){
             return currentPoints;
+        }
+
+        public String getUsername(){
+            return this.username;
+        }
+        
+        public void setUsername(String username){
+            this.username = username;
         }
         
 }

@@ -38,26 +38,26 @@ public class QuizScreen extends JPanel{
         // Set the layout of the GUI
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         
-        // ADDED: Give the screen nice padding so it's not touching the edges
+        // Give the screen nice padding so it's not touching the edges
         setBorder(BorderFactory.createEmptyBorder(50, 40, 50, 40)); 
         
         InterfaceQuestion currentQuestion = quiz.getQuestion(currentIndex);
         setBackground(Color.WHITE);
         
         question = new JLabel(currentQuestion.getQuestion());
-        // CHANGED: Center the question text
+        // Center the question text
         question.setAlignmentX(Component.LEFT_ALIGNMENT); 
         question.setMaximumSize(new Dimension(Integer.MAX_VALUE, question.getPreferredSize().height));
         
         add(question);
-        add(Box.createVerticalStrut(20)); // ADDED: Space below question
+        add(Box.createVerticalStrut(20)); // Space below question
 
         JComponent[] answerComponents = currentQuestion.createAnswerComponents();
         for(int i = 0; i<answerComponents.length; i++){
             // CHANGED: Center the A/B/C/D buttons
             answerComponents[i].setAlignmentX(Component.LEFT_ALIGNMENT); 
             add(answerComponents[i]);
-            add(Box.createVerticalStrut(10)); // ADDED: Space between options
+            add(Box.createVerticalStrut(10)); // Space between options
         }
         
         feedbackLabel = new JLabel("Incorrect Answer! The correct answer is " + currentQuestion.getCorrectAnswer() + ".");
@@ -69,9 +69,9 @@ public class QuizScreen extends JPanel{
         // ADDED: Center the next button
         nextButton.setAlignmentX(Component.LEFT_ALIGNMENT); 
         
-        add(Box.createVerticalStrut(15)); // ADDED: Space before next button
+        add(Box.createVerticalStrut(15)); // Space before next button
         add(nextButton);
-        add(Box.createVerticalStrut(15)); // ADDED: Space before feedback
+        add(Box.createVerticalStrut(15)); // Space before feedback
         add(feedbackLabel);
         
         currentQuestion.setNextButton(nextButton);
@@ -119,14 +119,14 @@ public class QuizScreen extends JPanel{
         feedbackLabel.setVisible(false);
         
         add(question);
-        add(Box.createVerticalStrut(20)); // ADDED: Space below question
+        add(Box.createVerticalStrut(20)); // Space below question
 
         JComponent[] newComponents = nextQuestion.createAnswerComponents();
         for(int i=0; i<newComponents.length; i++){
             // CHANGED: Center new buttons
             newComponents[i].setAlignmentX(Component.LEFT_ALIGNMENT); 
             add(newComponents[i]);
-            add(Box.createVerticalStrut(10)); // ADDED: Space between options
+            add(Box.createVerticalStrut(10)); // Space between options
         }
         
         add(Box.createVerticalStrut(15));
@@ -147,7 +147,7 @@ public class QuizScreen extends JPanel{
         
         // ADDED: Center the finish button
         finalize.setAlignmentX(Component.CENTER_ALIGNMENT); 
-        add(Box.createVerticalStrut(200)); // ADDED: Push it down to the middle of the screen
+        add(Box.createVerticalStrut(200)); // Push it down to the middle of the screen
         add(finalize);
         
         revalidate();

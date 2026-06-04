@@ -5,6 +5,7 @@ import screens.HomeScreen;
 import screens.InfoScreen;
 import screens.LeaderBoardScreen;
 import screens.QuizScreen;
+import screens.UsernameScreen;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,11 +18,13 @@ public class Main {
         QuizScreen quizScreen = new QuizScreen(appNavigator, quiz);
         HomeScreen homeScreen = new HomeScreen(appNavigator,quizScreen);
         LeaderBoardScreen leaderBoardScreen = new LeaderBoardScreen(appNavigator);
+        UsernameScreen usernameScreen = new UsernameScreen(appNavigator, quiz);
 
         appNavigator.addScreen("INFO_PAGE", infoPanel);
         appNavigator.addScreen("Quiz", quizScreen);
         appNavigator.addScreen("Home Screen", homeScreen);
         appNavigator.addScreen("Leaderboards", leaderBoardScreen);
+        appNavigator.addScreen("Username Screen", usernameScreen);
 
         appNavigator.showScreen("Home Screen");
     }
