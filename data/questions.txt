@@ -1,7 +1,20 @@
-MCQ::What does SDG 10 focus on?::Clean Energy::Responsible Consumption::Zero Hunger::Quality Education::B::1
-MCQ::What does SDG 11 focus on?::Clean Energy::Responsible Consumption::Zero Hunger::Quality Education::B::1
-MCQ::What does SDG 12 focus on?::Clean Energy::Responsible Consumption::Zero Hunger::Quality Education::B::1
-MCQ::What does SDG 13 focus on?::Clean Energy::Responsible Consumption::Zero Hunger::Quality Education::B::1
-TF::A compound proposition that is always False, no matter what truth values you give its individual statements, is called a tautology.::False::1
-MCQ::What does SDG 14 focus on?::Clean Energy::Responsible Consumption::Zero Hunger::Quality Education::C::1
-MCQ::Six seven?::Six seven::Six seven::Six seven::Six seven::C::2
+MCQ::A relation pairing every left item to exactly one right item is a __::Set::Function::Union::Subset::B::1
+TF::The statement p -> q is FALSE only when p is TRUE and q is FALSE.::True::1
+MCQ::If p is FALSE and q is FALSE, p -> q evaluates to?::TRUE::FALSE::Undefined::Both::A::1
+MCQ::Which symbol represents a Set Union?::∩::∪::⊂::∈::B::1
+MCQ::What does the symbol ∈ mean?::Intersect::Subset::Is a member::Union::C::1
+TF::The symbol ∩ stands for Set Intersection.::True::1
+MCQ::For mutually exclusive events, P(A or B) equals::P(A) * P(B)::P(A) + P(B)::P(A) - P(B)::P(A) / P(B)::B::1
+TF::Non-mutually exclusive events can happen at the exact same time.::True::1
+MCQ::What must you subtract for non-mutually exclusive events?::P(A)::P(B)::P(A and B)::Nothing::C::1
+MCQ::The ∀ symbol stands for::All::Some::None::Exist::A::1
+MCQ::The ∃ symbol means::All true::At least one true::None true::All false::B::1
+MCQ::Which symbol means AND (Conjunction)?::¬::∧::∨::→::B::1
+MCQ::Which symbol means OR (Disjunction)?::¬::∧::∨::→::C::1
+TF::The ¬ symbol means NOT (Negation).::True::1
+MCQ::A ∪ A = A is an example of which law?::Identity Law::Idempotent Law::De Morgan's Law::Domination Law::B::1
+TF::A ∪ ∅ = A is called the Identity Law.::True::1
+MCQ::A relation with a loop at every point is called::Reflexive::Symmetric::Transitive::Exclusive::A::1
+MCQ::If arrows always have a return arrow, the relation is::Reflexive::Symmetric::Transitive::Subset::B::1
+TF::A Cartesian Product creates a new set of ordered pairs.::True::1
+MCQ::In product A x B, the first item strictly comes from::Set A::Set B::Both sets::Neither set::A::1
