@@ -1,6 +1,6 @@
 package core;
 // Quiz class to generate questions
-// Created by:
+// Created by: Seng Zhi Jie (106256)
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -80,7 +80,6 @@ public class Quiz {
         public boolean verifyQuestionAnswer(InterfaceQuestion question){
             if(question.checkAnswer()){
                 this.currentPoints += question.getPointValue();
-                System.out.println(currentPoints);
                 return true;
             } else{
                 return false;

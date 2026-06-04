@@ -90,13 +90,13 @@ public class ResultScreen extends JPanel{
             public void actionPerformed(ActionEvent e){
                 // Important: Ensure "Home Screen" matches exactly what you named it in Main.java
                 navigator.showScreen("Home Screen"); 
-                saveScoreToFile(usernameString, finalPercentage);
+                saveScoreToFile(usernameString, finalPoints, finalPercentage);
                 quiz.resetQuiz();
             }
         });
     }
     
-    public void saveScoreToFile(String username, double finalPercentage){
+    public void saveScoreToFile(String username, int finalPoints, double finalPercentage){
         try{
             // Create data folder if it doesn't exist
             File folder = new File("data");
@@ -114,18 +114,16 @@ public class ResultScreen extends JPanel{
             
             // Get current timestamp
             LocalDateTime now = LocalDateTime.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             String timestamp = now.format(formatter);
 
             // Append to file
             FileWriter fw = new FileWriter(file, true); // true = append mode
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(username + "," + finalPercentage + "," + timestamp);
+            bw.write(username + "," + finalPoints + "," + finalPercentage + "," + timestamp);
             bw.newLine();
             bw.close();
             fw.close();
-
-            System.out.println("Score saved successfully!");
 
         }catch(IOException e){
             System.out.println("Error saving score: " + e.getMessage());

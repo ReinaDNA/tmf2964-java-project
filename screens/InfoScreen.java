@@ -1,6 +1,7 @@
 package screens;
 //The GUI panel that displays at least 10 pages of Discrete Math lessons.
-//Created by : Tvya 
+// Created by: Thiveya Shree a/p Baskaran (106564)
+
 import javax.swing.*;
 
 import core.Navigator;

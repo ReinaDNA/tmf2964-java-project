@@ -10,12 +10,13 @@ import screens.UsernameScreen;
 public class Main {
     public static void main(String[] args) {
         Quiz quiz = new Quiz();
+        GameEngine gameEngine = new GameEngine();
         quiz.loadQuestionFromFile();
 
         // 1. Start navigator (the main window)
         Navigator appNavigator = new Navigator();
         JPanel infoPanel = new InfoScreen(appNavigator);
-        QuizScreen quizScreen = new QuizScreen(appNavigator, quiz);
+        QuizScreen quizScreen = new QuizScreen(appNavigator, quiz, gameEngine);
         HomeScreen homeScreen = new HomeScreen(appNavigator,quizScreen);
         LeaderBoardScreen leaderBoardScreen = new LeaderBoardScreen(appNavigator);
         UsernameScreen usernameScreen = new UsernameScreen(appNavigator, quiz);

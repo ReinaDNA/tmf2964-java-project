@@ -1,7 +1,6 @@
 package questions;
 // Main class that implements question
-// Created by:
-import java.util.Scanner;
+// Created by: Mohamad Ikhmal Iskandar bin Mohd Ibrahim  (105016)
 import javax.swing.JComponent;
 import javax.swing.JButton;
 import interfaces.InterfaceQuestion;
@@ -20,15 +19,6 @@ public abstract class Question implements InterfaceQuestion {
         this.index = index;
         this.question = question;
         this.pointValue = pointValue;
-    }
-    
-    public void askQuestion(){
-        try(Scanner s = new Scanner(System.in)){
-            System.out.println(question);
-            response = s.next().charAt(0);
-            validateResponse();
-        }
-       
     }
 
     // Abstract functions
