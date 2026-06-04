@@ -1,6 +1,9 @@
 package screens;
 //The GUI panel that displays at least 10 pages of Discrete Math lessons.
 //Created by : Tvya 
+import javax.swing.*;
+
+import core.Navigator;
 import interfaces.InterfaceInfo;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,6 +17,9 @@ public class InfoScreen extends JPanel implements InterfaceInfo {
     private JLabel imageLabel;
     private JButton nextBtn;
     private JButton prevBtn;
+    private JButton backBtn;
+    private Navigator navigator;
+    
     
     // Tracking the current page number
     private int currentPage = 0;
@@ -22,7 +28,7 @@ public class InfoScreen extends JPanel implements InterfaceInfo {
     private String[] pageTexts = new String[10]; // ***EDIT String[n] to increase/decrease number of pages***
     private String[] imagePaths = new String[10]; // ***EDIT String[n] to increase/decrease number of pages***
 
-    public InfoScreen() {
+    public InfoScreen(Navigator navigator) {
         // Set up the layout
         setLayout(new BorderLayout());
         
@@ -43,8 +49,10 @@ public class InfoScreen extends JPanel implements InterfaceInfo {
 
         // 4. Set up the Buttons (Bottom)
         JPanel buttonPanel = new JPanel();
+        backBtn = new JButton("Back to Menu");
         prevBtn = new JButton("Previous");
         nextBtn = new JButton("Next");
+        buttonPanel.add(backBtn);
         buttonPanel.add(prevBtn);
         buttonPanel.add(nextBtn);
         add(buttonPanel, BorderLayout.SOUTH);
@@ -65,6 +73,19 @@ public class InfoScreen extends JPanel implements InterfaceInfo {
                     currentPage--;
                     updateDisplay(currentPage);
                 }
+            }
+        });
+
+        backBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                navigator.showScreen("HOME");
+            }
+        });
+
+        backBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // This string must exactly match what you named it in Main.java
+                navigator.showScreen("Home Screen"); 
             }
         });
 

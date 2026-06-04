@@ -13,7 +13,7 @@ public class Main {
 
         // 1. Start navigator (the main window)
         Navigator appNavigator = new Navigator();
-        JPanel infoPanel = new InfoScreen();
+        JPanel infoPanel = new InfoScreen(appNavigator);
         QuizScreen quizScreen = new QuizScreen(appNavigator, quiz);
         HomeScreen homeScreen = new HomeScreen(appNavigator,quizScreen);
         LeaderBoardScreen leaderBoardScreen = new LeaderBoardScreen(appNavigator);
@@ -23,7 +23,6 @@ public class Main {
         appNavigator.addScreen("Home Screen", homeScreen);
         appNavigator.addScreen("Leaderboards", leaderBoardScreen);
 
-        // Tell the app which screen to show when it first boots up (Test mode for tyva's part)
-        appNavigator.showScreen("Home Screen"); // "INFO_PAGE" is SUBJECT TO CHANGE...
+        appNavigator.showScreen("Home Screen");
     }
 }
