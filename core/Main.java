@@ -13,7 +13,7 @@ public class Main {
 
         // 1. Start navigator (the main window)
         Navigator appNavigator = new Navigator();
-        JPanel infoPanel = new InfoScreen();
+        JPanel infoPanel = new InfoScreen(appNavigator);
         QuizScreen quizScreen = new QuizScreen(appNavigator, quiz);
         HomeScreen homeScreen = new HomeScreen(appNavigator,quizScreen);
         LeaderBoardScreen leaderBoardScreen = new LeaderBoardScreen(appNavigator);
