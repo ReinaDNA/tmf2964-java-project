@@ -60,7 +60,8 @@ public class QuizScreen extends JPanel{
         setBorder(BorderFactory.createEmptyBorder(50, 40, 50, 40)); 
         
         InterfaceQuestion currentQuestion = quiz.getQuestion(currentIndex);
-        setBackground(Color.WHITE);
+        Color blondeColor = new Color(245, 245, 220);
+        setBackground(blondeColor);
         
         // Creates a label for the timer
         timer = new JLabel("Time: 60s");

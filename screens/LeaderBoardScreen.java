@@ -38,6 +38,9 @@ public class LeaderBoardScreen extends JPanel {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBackground(Color.WHITE);
         setBorder(BorderFactory.createEmptyBorder(50, 40, 50, 40));
+
+        Color blondeColor = new Color(245, 245, 220);
+        setBackground(blondeColor);
         
         // Create title
         JLabel titleLabel = new JLabel("Leaderboard");

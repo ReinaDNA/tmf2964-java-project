@@ -4,6 +4,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -32,6 +33,9 @@ public class UsernameScreen extends JPanel{
 
         // Set the layout of the GUI
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+        Color blondeColor = new Color(245, 245, 220);
+        setBackground(blondeColor);
         
         // Give the screen nice padding so it's not touching the edges
         setBorder(BorderFactory.createEmptyBorder(50, 40, 50, 40)); 

@@ -24,7 +24,9 @@ public class HomeScreen extends JPanel {
 
         // Keep your exact layout!
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        setBackground(Color.WHITE);
+
+        Color blondeColor = new Color(245, 245, 220);
+        setBackground(blondeColor);
         
         // 1. Add some invisible padding so buttons don't touch the window edges
         setBorder(BorderFactory.createEmptyBorder(50, 40, 50, 40));
