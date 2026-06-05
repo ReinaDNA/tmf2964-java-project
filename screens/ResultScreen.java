@@ -1,4 +1,5 @@
 package screens;
+// Screen to display results
 import java.awt.Color;
 import java.awt.Component; // For centering
 import java.awt.Font;      // To make the text look nicer
@@ -97,6 +98,7 @@ public class ResultScreen extends JPanel{
         });
     }
     
+    // Function to save the data into file
     public void saveScoreToFile(String username, int finalPoints, double finalPercentage){
         try{
             // Create data folder if it doesn't exist
@@ -110,8 +112,6 @@ public class ResultScreen extends JPanel{
             if(!file.exists()){
                 file.createNewFile();
             }
-
-            // Get the data 
             
             // Get current timestamp
             LocalDateTime now = LocalDateTime.now();

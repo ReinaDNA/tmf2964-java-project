@@ -1,4 +1,6 @@
 package screens;
+// IMPORTANT SCREEN
+// Main screen that runs the quiz
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -32,6 +34,7 @@ public class QuizScreen extends JPanel{
     private JLabel healthLabel;
     private boolean isClickedOnce = false;
     private Quiz quiz;
+
     // Page index constant
     private int currentIndex = 0;
 
@@ -43,11 +46,6 @@ public class QuizScreen extends JPanel{
         this.gameEngine = gameEngine;
 
         // Sets a Health bar for the game (Each user has 5 lives)
-        // healthBar = new JProgressBar(0,5);
-        // healthBar.setValue(gameEngine.getCurrentHealth()); // Sets it to 5 
-        // healthBar.setString(gameEngine.getHealthString());
-        // healthBar.setStringPainted(true);
-        // healthBar.setAlignmentX(Component.LEFT_ALIGNMENT);
         healthLabel = new JLabel(gameEngine.getHealthString());
         healthLabel.setFont(new Font("SansSerif", Font.BOLD, 24)); // Bigger hearts
         healthLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -59,6 +57,7 @@ public class QuizScreen extends JPanel{
         // Give the screen nice padding so it's not touching the edges
         setBorder(BorderFactory.createEmptyBorder(50, 40, 50, 40)); 
         
+        // Fetches the questions
         InterfaceQuestion currentQuestion = quiz.getQuestion(currentIndex);
         Color blondeColor = new Color(245, 245, 220);
         setBackground(blondeColor);
@@ -105,29 +104,35 @@ public class QuizScreen extends JPanel{
         currentQuestion.setNextButton(nextButton);
         nextButton.setEnabled(false);
 
-        
+        // When the next button is clicked
         nextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
+                // If it is the second click
                 if(isClickedOnce){
+                    // Reset click status
                     isClickedOnce = false;
-                    feedbackLabel.setVisible(false);
-                    nextButton.setText("Next Question");
+                    feedbackLabel.setVisible(false); // revert display message
+                    nextButton.setText("Next Question"); // Change back the text
+                    // Checks if it's the last question
                     if(currentIndex == quiz.getLastIndex()){
                         endOfQuiz(navigator, quiz);
                     }else{
                         generateNextQuestion(quiz, currentQuestion, gameEngine);
                     }
                 }else{
+                    // If it is first click, stops the timer and verify user response is correct or not
                     gameEngine.stopTimer();
                     boolean userAnswer = quiz.verifyQuestionAnswer(quiz.getQuestion(currentIndex));
                     if(userAnswer){
+                        // If answer is correct, proceed with next question
                         if(currentIndex == quiz.getLastIndex()){
                             endOfQuiz(navigator, quiz);
                         }else{
                             generateNextQuestion(quiz, currentQuestion, gameEngine);
                         }
                     }else{
+                        // Incorrect answer, flip the clickedOnce switch to display the message
                         isClickedOnce = true;
                         // Deduct HP for incorrect answer and update display
                         gameEngine.stopTimer();
@@ -181,9 +186,15 @@ public class QuizScreen extends JPanel{
 
     // Fetches the next question in line and serves it.
     public void generateNextQuestion(Quiz quiz, InterfaceQuestion currentQuestion, GameEngine gameEngine){
+
+        // Remove all elements from the screen and increment index 
         removeAll();
         currentIndex++;
+
+        // Reset the user Response
         currentQuestion.clearUserResponse();
+
+        // Fetch the next question and setup GUI elements
         InterfaceQuestion nextQuestion = quiz.getQuestion(currentIndex);
         question.setText(nextQuestion.getQuestion());
         feedbackLabel.setText("Incorrect Answer! The correct answer is " + nextQuestion.getCorrectAnswer() + ".");
@@ -209,6 +220,8 @@ public class QuizScreen extends JPanel{
         nextButton.setEnabled(false);
         nextQuestion.setNextButton(nextButton);
         add(timer);
+
+        // Reset the timer to start again
         gameEngine.startTimer();
         revalidate();
         repaint();
@@ -246,6 +259,7 @@ public class QuizScreen extends JPanel{
             });
 
         }else{
+            // If player finished the quiz
             JButton finalize = new JButton("Finish quiz");
             
             // ADDED: Center the finish button
@@ -260,7 +274,7 @@ public class QuizScreen extends JPanel{
                     ResultScreen resultScreen = new ResultScreen(navigator, quiz);
                     navigator.addScreen("Result Screen", resultScreen);
                     navigator.showScreen("Result Screen");
-                    resetQuizScreen();
+                    resetQuizScreen(); // Reset everything
                     gameEngine.resetAll();
                 }
             });
