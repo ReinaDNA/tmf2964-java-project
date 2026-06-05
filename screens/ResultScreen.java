@@ -34,7 +34,8 @@ public class ResultScreen extends JPanel{
     public ResultScreen(Navigator navigator, Quiz quiz){
         this.navigator = navigator;
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        setBackground(Color.WHITE);
+        Color blondeColor = new Color(245, 245, 220);
+        setBackground(blondeColor);
         
         // 1. Give the screen nice padding so it matches the other pages
         setBorder(BorderFactory.createEmptyBorder(50, 40, 50, 40));

@@ -32,6 +32,9 @@ public class InfoScreen extends JPanel implements InterfaceInfo {
     public InfoScreen(Navigator navigator) {
         // Set up the layout
         setLayout(new BorderLayout());
+
+        Color blondeColor = new Color(245, 245, 220);
+        setBackground(blondeColor);
         
         // 1. Load the data
         setupContent();
