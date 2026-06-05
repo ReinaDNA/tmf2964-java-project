@@ -1,6 +1,8 @@
 package screens;
 // Screen for Leaderboard
 // Created by: Seng Zhi Jie (106256)
+// Tested by: Arif Amirul Aiman Bin Marzuki (83282)
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;

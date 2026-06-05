@@ -1,6 +1,8 @@
 package screens;
 // IMPORTANT SCREEN
 // Main screen that runs the quiz
+// Created by: Arif Amirul Aiman Bin Marzuki (83282)
+// Tested by: Seng Zhi Jie (106256)
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;

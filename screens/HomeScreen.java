@@ -1,5 +1,7 @@
 package screens;
-
+// Screen to display home page
+// Created by: Seng Zhi Jie (106256)
+// Tested by: Arif Amirul Aiman Bin Marzuki (83282)
 import java.awt.Color;
 import java.awt.Component; // Needed to center items in BoxLayout
 import java.awt.Font;      // Needed to make the welcome text bigger

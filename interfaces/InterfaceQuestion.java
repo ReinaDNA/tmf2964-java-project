@@ -3,6 +3,7 @@ import javax.swing.JButton;
 // Interface for question 
 // This allows different types of question with the same base.
 // Created by: Mohamad Ikhmal Iskandar bin Mohd Ibrahim  (105016)
+// Tested by: Seng Zhi Jie (106256)
 
 import javax.swing.JComponent;
 
