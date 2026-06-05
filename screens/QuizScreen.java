@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.BorderFactory; // ADDED: For screen padding
 import javax.swing.Box;           // ADDED: For spaces between buttons
+import javax.swing.JTextArea;
 
 import core.GameEngine;
 import core.Navigator;
@@ -25,7 +26,7 @@ public class QuizScreen extends JPanel{
     @SuppressWarnings("unused")
     private Navigator navigator;
     private JButton nextButton;
-    private JLabel question;
+    private JTextArea question;
     private JLabel feedbackLabel;
     private JLabel timer;
     private JLabel healthLabel;
@@ -65,10 +66,13 @@ public class QuizScreen extends JPanel{
         timer = new JLabel("Time: 60s");
         timer.setFont(new Font("SansSerif", Font.BOLD, 22)); // Make it stand out
 
-        question = new JLabel(currentQuestion.getQuestion());
-        // Center the question text
-        question.setAlignmentX(Component.LEFT_ALIGNMENT); 
-        question.setMaximumSize(new Dimension(Integer.MAX_VALUE, question.getPreferredSize().height));
+        question = new JTextArea(currentQuestion.getQuestion());
+        question.setLineWrap(true);       // Forces text to drop to the next line
+        question.setWrapStyleWord(true);  // Ensures it doesn't cut words in half
+        question.setEditable(false);      // Stops the user from typing in it
+        question.setOpaque(false);        // Makes the background transparent to look like a label
+        question.setMaximumSize(new Dimension(Integer.MAX_VALUE, 35)); //Limit the question for not taking to much space
+        question.setAlignmentX(Component.LEFT_ALIGNMENT); // Center the question text.
         
         add(question);
         add(Box.createVerticalStrut(20)); // Space below question
