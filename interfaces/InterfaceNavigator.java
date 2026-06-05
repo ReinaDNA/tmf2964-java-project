@@ -2,6 +2,7 @@ package interfaces;
 /*
  - The blueprint to guide through the SDG Math App.
  - Created by: Arif Amirul Aiman Bin Marzuki (83282)
+ - Tested by: Thiveya Shree a/p Baskaran (106564)
  */ 
 import javax.swing.JPanel;
 

@@ -1,5 +1,7 @@
 package screens;
 // Screen to prompt user input a username
+// Created by: Seng Zhi Jie (106256)
+// Tested by: Arif Amirul Aiman Bin Marzuki (83282)
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;

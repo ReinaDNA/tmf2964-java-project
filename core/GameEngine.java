@@ -1,7 +1,7 @@
 package core;
 // Class for the gamification elements
 // Created by: Seng Zhi Jie (106256)
-
+// Tested by: Mohamad Ikhmal Iskandar bin Mohd Ibrahim  (105016)
 import java.awt.event.ActionListener;
 import javax.swing.Timer; 
 import interfaces.InterfaceGameEngine;

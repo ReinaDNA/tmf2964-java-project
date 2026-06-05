@@ -1,6 +1,8 @@
 package questions;
 // Question Type: True or False Question
 // Inherits from Question to make different types of questions
+// Created by: Mohamad Ikhmal Iskandar bin Mohd Ibrahim  (105016)
+// Tested by: Seng Zhi Jie (106256)
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

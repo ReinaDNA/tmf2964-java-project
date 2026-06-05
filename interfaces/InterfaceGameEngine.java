@@ -1,6 +1,7 @@
 package interfaces;
 // Interface for Gamification Element 
 // Created by: Seng Zhi Jie (106256)
+// Tested by: Mohamad Ikhmal Iskandar bin Mohd Ibrahim  (105016)
 public interface InterfaceGameEngine {
     // This interface will hold all elements related to the Game engine
     // Timer methods

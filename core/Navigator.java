@@ -2,6 +2,7 @@ package core;
 /*
  - Brings the navigation blueprint to life. This class acts as the main window of our SDG Math App
  - Created by: Arif Amirul Aiman Bin Marzuki (83282)
+ - Tested by: Seng Zhi Jie (106256)
  */
 import java.awt.CardLayout;
 import javax.swing.JFrame;

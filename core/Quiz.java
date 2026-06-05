@@ -1,7 +1,7 @@
 package core;
 // Quiz class to generate questions
 // Created by: Seng Zhi Jie (106256)
-
+// Tested by: Arif Amirul Aiman Bin Marzuki (83282)
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
