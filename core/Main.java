@@ -1,6 +1,6 @@
 package core;
 import javax.swing.JPanel;
-
+// Main class that runs the program from command prompt
 import screens.HomeScreen;
 import screens.InfoScreen;
 import screens.LeaderBoardScreen;

@@ -62,7 +62,7 @@ public class HomeScreen extends JPanel {
         
         add(exitButton);
 
-        // Keep your exact Event Listeners untouched!
+        // Event Listeners for every button on Home Page
         infoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
